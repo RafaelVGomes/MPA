@@ -1,7 +1,7 @@
 {
 	"folders": [
 		{
-			"path": "../../../../.."
+			"path": "."
 		}
 	],
 	"settings": {
@@ -15,9 +15,7 @@
 				"port": 3306,
 				"driver": "MySQL",
 				"name": "MySQL",
-				"database": "db_mpa",
-				"username": "testes",
-				"password": "1234"
+				"database": "db_mpa"
 			}
 		],
 		"java.configuration.updateBuildConfiguration": "automatic"
