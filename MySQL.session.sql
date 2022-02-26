@@ -1,0 +1,1 @@
+DROP TABLE db_mpa.user, db_mpa.tab, db_mpa.hibernate_sequence;
