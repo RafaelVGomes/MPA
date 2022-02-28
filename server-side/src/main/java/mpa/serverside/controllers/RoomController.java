@@ -15,47 +15,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import mpa.serverside.models.Tab;
-import mpa.serverside.services.TabService;
+import mpa.serverside.models.Room;
+import mpa.serverside.services.RoomService;
 
 @CrossOrigin
 @RestController
 @RequestMapping("mpa")
-public class TabController {
+public class RoomController {
 
   @Autowired
-  private TabService tabService;
+  RoomService roomService;
 
-  @GetMapping("/tabs")
-  public List<Tab> listTabs(){
-    List<Tab> tabs = tabService.listTabs();
-    return tabs;
+  @GetMapping("/rooms")
+  public List<Room> listRooms(){
+    List<Room> rooms = roomService.listRooms();
+    return rooms;
   }
 
-  @GetMapping("/tab")
-  public Tab findByTabId(@RequestBody Tab tab){
-    return tabService.findByTabId(tab.getId_tab());
+  @GetMapping("/room")
+  public Room findByRoomId(@RequestBody Room room){
+    return roomService.findByRoomId(room.getId_room());
   }
 
-  @PostMapping("/tab")
-  public ResponseEntity<Tab> createTab(@RequestBody Tab tab){
-    Tab obj = tab;
-    Integer id_room = obj.getRoom().getId_room();
-    tab = tabService.createTab(id_room, tab);
+  @PostMapping("/room")
+  public ResponseEntity<Room> createRoom(@RequestBody Room room){
+    Room obj = room;
+    Integer id_contractor = obj.getContractor().getId_contractor();
+    room = roomService.createRoom(id_contractor, room);
     URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-        .buildAndExpand(tab.getId_tab()).toUri();
+        .buildAndExpand(room.getId_room()).toUri();
     return ResponseEntity.created(uri).build();
   }
 
-  @PutMapping("/tab")
-  public ResponseEntity<Tab> editTab(@RequestBody Tab tab){
-    tabService.editTab(tab);
+  @PutMapping("/room")
+  public ResponseEntity<Room> editRoom(@RequestBody Room room){
+    roomService.editRoom(room);
     return ResponseEntity.noContent().build();
   }
 
-  @DeleteMapping("/tab")
-  public ResponseEntity<Void> deleteTab(@RequestBody Tab tab){
-    tabService.deleteTab(tab.getId_tab());
+  @DeleteMapping("/room")
+  public ResponseEntity<Void> deleteRoom(@RequestBody Room room){
+    roomService.deleteRoom(room.getId_room());
     return ResponseEntity.noContent().build();
   }
   

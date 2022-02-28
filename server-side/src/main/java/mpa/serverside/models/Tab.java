@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Tab {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id_tab;
 
   @Column(nullable = false)
@@ -23,8 +23,8 @@ public class Tab {
 
   @JsonIgnore
   @ManyToOne
-  @JoinColumn(name = "id_user")
-  private User user;
+  @JoinColumn(name = "id_room")
+  private Room room;
 
   public Integer getId_tab() {
     return id_tab;
@@ -42,12 +42,12 @@ public class Tab {
     this.name = name;
   }
 
-  public User getUser() {
-    return user;
+  public Room getRoom() {
+    return room;
   }
 
-  public void setUser(User user) {
-    this.user = user;
+  public void setRoom(Room room) {
+    this.room = room;
   }
 
 }
