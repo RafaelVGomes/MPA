@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+
+  angular:
+    build:
+      context: ./client-side
+
+  springboot:
+    build:
+      context: ./server-side
