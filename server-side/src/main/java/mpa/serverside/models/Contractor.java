@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -20,7 +21,8 @@ public class Contractor {
   @Column(nullable = false)
   private String name;
 
-  @OneToOne(mappedBy = "id_room")
+  @OneToOne
+  @JoinColumn(name = "id_room", nullable = true, unique = true)
   private Room room;
 
   @OneToMany(mappedBy = "id_employee")

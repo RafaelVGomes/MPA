@@ -23,7 +23,7 @@ public class Tab {
 
   @JsonIgnore
   @ManyToOne
-  @JoinColumn(name = "id_room")
+  @JoinColumn(name = "id_room", nullable = false, unique = true)
   private Room room;
 
   public Integer getId_tab() {

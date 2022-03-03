@@ -1,5 +1,7 @@
 package mpa.serverside.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,11 +26,11 @@ public class Room {
   @JsonIgnore
   @OneToMany
   @JoinColumn(name = "id_tab", nullable = true)
-  private Tab tab;
+  private List<Tab> tab;
 
   @JsonIgnore
   @OneToOne
-  @JoinColumn(name = "id_user", nullable = false, unique = true)
+  @JoinColumn(name = "id_contractor", nullable = false, unique = true)
   private Contractor contractor;
 
   public Integer getId_room() {
@@ -47,11 +49,11 @@ public class Room {
     this.name = name;
   }
 
-  public Tab getTab() {
+  public List<Tab> getTab() {
     return tab;
   }
 
-  public void setTab(Tab tab) {
+  public void setTab(List<Tab> tab) {
     this.tab = tab;
   }
 
@@ -63,4 +65,5 @@ public class Room {
     this.contractor = contractor;
   }
 
+  
 }
